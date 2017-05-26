@@ -3,6 +3,8 @@ package com.codecool.shop.dao.jdbc;
 import com.codecool.shop.DbConnection;
 import com.codecool.shop.dao.UserDao;
 import com.codecool.shop.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.io.IOException;
@@ -12,6 +14,7 @@ import java.util.List;
 
 public class UserDaoJdbc implements UserDao {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserDaoJdbc.class);
     DbConnection connection = new DbConnection();
     private static UserDaoJdbc instance = null;
 
@@ -40,10 +43,10 @@ public class UserDaoJdbc implements UserDao {
             } else {
                 int result = 1;
             }
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e ) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error while connecting to database", e);
+
         }
 
         //insert the new user into the DB.
@@ -56,10 +59,10 @@ public class UserDaoJdbc implements UserDao {
             pstmt.setString(2, user.getPassword());
             pstmt.setInt(3, user.getRank());
             pstmt.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error while connecting to database", e);
+
         }
 
     }
@@ -80,10 +83,10 @@ public class UserDaoJdbc implements UserDao {
                 return null;
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error while connecting to database", e);
+
         }
         return null;
     }
@@ -103,10 +106,10 @@ public class UserDaoJdbc implements UserDao {
                 return null;
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error while connecting to database", e);
+
         }
         return null;
     }
@@ -132,10 +135,10 @@ public class UserDaoJdbc implements UserDao {
             PreparedStatement pstmt = connection.getConnection().prepareStatement(DELETE_QUERY);
             pstmt.setInt(1, id);
             pstmt.executeQuery();
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error while connecting to database", e);
+
         }
     }
 
@@ -159,10 +162,10 @@ public class UserDaoJdbc implements UserDao {
                 return null;
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Error while connecting to database", e);
+
         }
         return null;
     }

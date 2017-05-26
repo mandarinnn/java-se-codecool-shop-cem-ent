@@ -3,6 +3,8 @@ package com.codecool.shop.dao.jdbc;
 import com.codecool.shop.DbConnection;
 import com.codecool.shop.dao.SupplierDao;
 import com.codecool.shop.model.Supplier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.sql.*;
@@ -12,6 +14,7 @@ import java.util.List;
 
 public class SupplierDaoJdbc implements SupplierDao {
 
+    private static final Logger logger = LoggerFactory.getLogger(SupplierDaoJdbc.class);
     private DbConnection dbConnection = new DbConnection();
     private static SupplierDaoJdbc instance = null;
 
@@ -45,6 +48,7 @@ public class SupplierDaoJdbc implements SupplierDao {
 
         } catch (SQLException | IOException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
 
     }
@@ -60,6 +64,7 @@ public class SupplierDaoJdbc implements SupplierDao {
             return (resultSet.next()) ? createSupplier(resultSet) : null;
         } catch (SQLException | IOException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
         return null;
     }
@@ -73,6 +78,7 @@ public class SupplierDaoJdbc implements SupplierDao {
             pstmt.executeUpdate();
         } catch (IOException | SQLException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
     }
 
@@ -90,6 +96,7 @@ public class SupplierDaoJdbc implements SupplierDao {
             return suppliers;
         } catch (SQLException | IOException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
         return null;
     }

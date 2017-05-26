@@ -5,6 +5,8 @@ import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.Supplier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.sql.*;
@@ -14,6 +16,7 @@ import java.util.List;
 
 public class ProductDaoJdbc implements ProductDao {
 
+    private static final Logger logger = LoggerFactory.getLogger(ProductDaoJdbc.class);
     private DbConnection dbConnection = new DbConnection();
     private SupplierDaoJdbc supplier = SupplierDaoJdbc.getInstance();
     private ProductCategoryDaoJdbc productCategory = ProductCategoryDaoJdbc.getInstance();
@@ -42,6 +45,7 @@ public class ProductDaoJdbc implements ProductDao {
         }
         catch (IOException|SQLException ex) {
             ex.printStackTrace();
+            logger.error("Error while connecting to database", ex);
         }
     }
 
@@ -57,6 +61,7 @@ public class ProductDaoJdbc implements ProductDao {
             return (resultSet.next()) ? createProduct(resultSet) : null;
         } catch (IOException | SQLException ex) {
             ex.printStackTrace();
+            logger.error("Error while connecting to database", ex);
         }
         return null;
     }
@@ -70,6 +75,7 @@ public class ProductDaoJdbc implements ProductDao {
             pstmt.executeUpdate();
         } catch (IOException | SQLException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
     }
 
@@ -87,6 +93,7 @@ public class ProductDaoJdbc implements ProductDao {
             return productList;
         } catch (SQLException | IOException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
         return null;
     }
@@ -105,6 +112,7 @@ public class ProductDaoJdbc implements ProductDao {
             return productList;
         } catch (SQLException | IOException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
         return null;
     }
@@ -123,6 +131,7 @@ public class ProductDaoJdbc implements ProductDao {
             return productList;
         } catch (SQLException | IOException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
         return null;
     }

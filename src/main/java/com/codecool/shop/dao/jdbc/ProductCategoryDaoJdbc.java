@@ -1,9 +1,12 @@
 package com.codecool.shop.dao.jdbc;
 
 import com.codecool.shop.DbConnection;
+import com.codecool.shop.controller.CartController;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.sql.*;
@@ -13,6 +16,7 @@ import java.util.List;
 
 public class ProductCategoryDaoJdbc implements ProductCategoryDao {
 
+    private static final Logger logger = LoggerFactory.getLogger(ProductCategoryDaoJdbc.class);
     DbConnection dbConnection = new DbConnection();
     private static ProductCategoryDaoJdbc instance = null;
 
@@ -51,6 +55,7 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
         }
         catch (IOException | SQLException ex) {
             ex.printStackTrace();
+            logger.error("Error while connecting to database", ex);
         }
     }
 
@@ -67,6 +72,7 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
             return (resultSet.next()) ? createProductCategory(resultSet) : null;
         } catch (SQLException | IOException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
         return null;
     }
@@ -80,6 +86,7 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
             pstmt.executeUpdate();
         } catch (IOException | SQLException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
     }
 
@@ -96,6 +103,7 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
             return productCategoryList;
         } catch (SQLException | IOException e) {
             e.printStackTrace();
+            logger.error("Error while connecting to database", e);
         }
         return null;
     }
