@@ -52,9 +52,9 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
             ResultSet generatedKeys = ps.getGeneratedKeys();
             generatedKeys.next();
             category.setId(generatedKeys.getInt("id"));
+            logger.info("Category added {}", category.toString());
         }
         catch (IOException | SQLException ex) {
-            ex.printStackTrace();
             logger.error("Error while connecting to database", ex);
         }
     }
@@ -71,7 +71,6 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
             ResultSet resultSet = pstmt.executeQuery();
             return (resultSet.next()) ? createProductCategory(resultSet) : null;
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
         return null;
@@ -84,8 +83,8 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
             PreparedStatement pstmt = dbConnection.getConnection().prepareStatement(query);
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
+            logger.info("Category removed: {}", id);
         } catch (IOException | SQLException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
     }
@@ -102,7 +101,6 @@ public class ProductCategoryDaoJdbc implements ProductCategoryDao {
             }
             return productCategoryList;
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
         return null;

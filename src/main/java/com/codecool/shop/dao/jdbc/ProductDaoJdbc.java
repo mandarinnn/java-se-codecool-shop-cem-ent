@@ -42,9 +42,9 @@ public class ProductDaoJdbc implements ProductDao {
             ResultSet generatedKeys = ps.getGeneratedKeys();
             generatedKeys.next();
             product.setId(generatedKeys.getInt("id"));
+            logger.info("Product added: {}", product.toString());
         }
         catch (IOException|SQLException ex) {
-            ex.printStackTrace();
             logger.error("Error while connecting to database", ex);
         }
     }
@@ -60,7 +60,6 @@ public class ProductDaoJdbc implements ProductDao {
             ResultSet resultSet = pstmt.executeQuery();
             return (resultSet.next()) ? createProduct(resultSet) : null;
         } catch (IOException | SQLException ex) {
-            ex.printStackTrace();
             logger.error("Error while connecting to database", ex);
         }
         return null;
@@ -73,8 +72,8 @@ public class ProductDaoJdbc implements ProductDao {
             PreparedStatement pstmt = dbConnection.getConnection().prepareStatement(query);
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
+            logger.info("Product removed: {}", id);
         } catch (IOException | SQLException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
     }
@@ -92,7 +91,6 @@ public class ProductDaoJdbc implements ProductDao {
             }
             return productList;
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
         return null;
@@ -111,7 +109,6 @@ public class ProductDaoJdbc implements ProductDao {
             }
             return productList;
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
         return null;
@@ -130,7 +127,6 @@ public class ProductDaoJdbc implements ProductDao {
             }
             return productList;
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
         return null;

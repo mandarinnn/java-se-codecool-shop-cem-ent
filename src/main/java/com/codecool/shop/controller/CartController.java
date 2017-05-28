@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class CartController {
 
-    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CartController.class);
     private static CartController instance = null;
     private CartController() {}
 
@@ -39,8 +39,8 @@ public class CartController {
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("numberOfProductsInCart", cartDataStore.getAllQuantity());
         res.type("application/json");
-        logger.info("Product added to cart: {}", lineItemCandidate.getProduct());
-        logger.info("In cart are {} item(s)", cartDataStore.getAllQuantity());
+        LOGGER.info("Product added to cart: {}", lineItemCandidate.getProduct());
+        LOGGER.info("In cart are {} item(s)", cartDataStore.getAllQuantity());
         return jsonObj;
     }
 

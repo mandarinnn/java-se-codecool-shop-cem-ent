@@ -1,5 +1,8 @@
 package com.codecool.shop;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,6 +13,8 @@ import java.sql.Statement;
 
 
 public class DbConnection {
+
+    private static final Logger logger = LoggerFactory.getLogger(DbConnection.class);
 
     public Connection getConnection() throws IOException, SQLException {
 
@@ -31,11 +36,8 @@ public class DbConnection {
         ){
             statement.execute(query);
         }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
+        catch (SQLException | IOException e) {
+            logger.error("Error while connecting to database");
         }
 
     }

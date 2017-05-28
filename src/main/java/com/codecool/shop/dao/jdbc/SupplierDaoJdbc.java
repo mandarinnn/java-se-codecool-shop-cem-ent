@@ -45,9 +45,9 @@ public class SupplierDaoJdbc implements SupplierDao {
             ResultSet generatedKeys = pstmt.getGeneratedKeys();
             generatedKeys.next();
             supplier.setId(generatedKeys.getInt("id"));
+            logger.info("Supplier added: {}", supplier.toString());
 
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
 
@@ -63,7 +63,6 @@ public class SupplierDaoJdbc implements SupplierDao {
             ResultSet resultSet = pstmt.executeQuery();
             return (resultSet.next()) ? createSupplier(resultSet) : null;
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
         return null;
@@ -76,8 +75,8 @@ public class SupplierDaoJdbc implements SupplierDao {
             PreparedStatement pstmt = dbConnection.getConnection().prepareStatement(QUERY);
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
+            logger.info("Supplier removed: {}", id);
         } catch (IOException | SQLException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
     }
@@ -95,7 +94,6 @@ public class SupplierDaoJdbc implements SupplierDao {
             }
             return suppliers;
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
             logger.error("Error while connecting to database", e);
         }
         return null;

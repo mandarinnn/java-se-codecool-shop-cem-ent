@@ -4,12 +4,6 @@ import static spark.debug.DebugScreen.enableDebugScreen;
 import com.codecool.shop.controller.CartController;
 import com.codecool.shop.controller.LoginController;
 import com.codecool.shop.controller.ProductController;
-import com.codecool.shop.dao.*;
-import com.codecool.shop.dao.jdbc.ProductCategoryDaoJdbc;
-import com.codecool.shop.dao.jdbc.ProductDaoJdbc;
-import com.codecool.shop.dao.jdbc.SupplierDaoJdbc;
-import com.codecool.shop.dao.jdbc.UserDaoJdbc;
-import com.codecool.shop.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import spark.Request;
@@ -31,17 +25,13 @@ public class Main {
         staticFileLocation("/public");
         port(8888);
 
-        // populate some data for the memory storage
-
-        //populateData();
-
-
         // Always add generic routes to the end
         get("/", productController::renderProducts, templateEngine);
         // Equivalent with above
 
         get("/index", (Request req, Response res) ->
                 productController.renderProducts(req, res), templateEngine);
+
 
         get("/cartview", (Request req, Response res) ->
                 templateEngine.render(cartController.renderCart(req, res))
