@@ -3,6 +3,13 @@ package com.codecool.shop.model;
 
 import java.util.ArrayList;
 
+/**
+ * <h1>The User Object</h1>
+ * <p>Various attributes of users, and related behaviour.</p>
+ * @author Fanni Skoda
+ * @since 2017.05.08.
+ */
+
 public class User {
     protected int id;
     protected String name;

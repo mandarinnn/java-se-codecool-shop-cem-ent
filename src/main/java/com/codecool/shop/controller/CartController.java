@@ -14,8 +14,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <h1>This is the controller class of Cart Object</>
- * <p>The controller is a singleton.</>
+ * <h1>This is the controller class of Cart Object</h1>
+ * <p>The controller is a singleton.</p>
+ *  @author Fanni Skoda
+ *  @since 2017.05.08.
  */
 
 public class CartController {

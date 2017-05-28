@@ -22,6 +22,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * <h1>This is the controller class of Product Object</h1>
+ * <p>The controller is a singleton.</p>
+ *  @author Fanni Skoda
+ *  @since 2017.05.08.
+ */
 public class ProductController {
 
     private static ProductController instance = null;

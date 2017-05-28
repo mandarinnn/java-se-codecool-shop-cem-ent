@@ -8,8 +8,8 @@ import java.util.Objects;
 
 /**
  * <h1>The Cart object</h1>
- * <P>Various attributes of Cart singleton, and related behaviour.
- * Cart is a collection of {@link LineItem}s
+ * <p>Various attributes of Cart singleton, and related behaviour.
+ * Cart is a collection of {@link LineItem}s </p>
  * @author Fanni Skoda
  * @since 2017.05.08.
  */

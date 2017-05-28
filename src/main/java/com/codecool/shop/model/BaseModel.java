@@ -4,8 +4,8 @@ package com.codecool.shop.model;
 import java.lang.reflect.Field;
 
 /**
- * <h1>The base model of objects</>
- * <P>Various attributes of models, and related behaviour.
+ * <h1>The base model of objects</h1>
+ * <p>Various attributes of models, and related behaviour.</p>
  * @author Fanni Skoda
  * @since 2017.05.08.
  */

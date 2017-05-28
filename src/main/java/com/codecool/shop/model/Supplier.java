@@ -2,6 +2,12 @@ package com.codecool.shop.model;
 
 import java.util.ArrayList;
 
+/**
+ * <h1>The Supplier Object</h1>
+ * <p>Various attributes of suppliers, and related behaviour.</p>
+ * @author Fanni Skoda
+ * @since 2017.05.08.
+ */
 
 public class Supplier extends BaseModel {
     private ArrayList<Product> products;

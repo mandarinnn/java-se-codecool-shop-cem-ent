@@ -5,7 +5,7 @@ import com.codecool.shop.model.ProductCategory;
 import java.util.List;
 
 /**
- * <h1>Interface of Product Category Data Access Object</>
+ * <h1>Interface of Product Category Data Access Object</h1>
  * @author Fanni Skoda
  * @since 2017.05.08.
  */

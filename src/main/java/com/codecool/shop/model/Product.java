@@ -3,8 +3,8 @@ package com.codecool.shop.model;
 import java.util.Currency;
 
 /**
- * <h1>The Product object</>
- * <P>Various attributes of Products, and related behaviour.
+ * <h1>The Product object</h1>
+ * <p>Various attributes of Products, and related behaviour. </p>
  * @author Fanni Skoda
  * @since 2017.05.08.
  */

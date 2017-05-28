@@ -2,8 +2,8 @@ package com.codecool.shop.model;
 
 /**
  * <h1>The Line Item object</h1>
- * <P>Various attributes of line items, and related behaviour.
- * Every line item is from {@link Product} object
+ * <p>Various attributes of line items, and related behaviour.
+ * Every line item is from {@link Product} object </p>
  * @author Fanni Skoda
  * @since 2017.05.08.
  */
@@ -16,7 +16,7 @@ public class LineItem {
         this.product = product;
     }
 
-    public float getPrice() {
+    float getPrice() {
         return product.getDefaultPrice() * quantity;
     }
 
@@ -24,7 +24,7 @@ public class LineItem {
         return product;
     }
 
-    public int getQuantity() {
+    int getQuantity() {
         return quantity;
     }
 
@@ -32,10 +32,7 @@ public class LineItem {
         this.quantity = quantity;
     }
 
-    /**
-     *
-     */
-    public void incrementQuantity() {
+    void incrementQuantity() {
         this.quantity += 1;
     }
     

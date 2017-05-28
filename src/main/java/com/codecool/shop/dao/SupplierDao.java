@@ -5,7 +5,7 @@ import com.codecool.shop.model.Supplier;
 import java.util.List;
 
 /**
- * <h1>Interface of Supplier Data Access Object</>
+ * <h1>Interface of Supplier Data Access Object</h1>
  * @author Fanni Skoda
  * @since 2017.05.08.
  */

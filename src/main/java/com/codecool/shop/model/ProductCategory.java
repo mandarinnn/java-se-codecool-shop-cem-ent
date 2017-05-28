@@ -2,6 +2,13 @@ package com.codecool.shop.model;
 
 import java.util.ArrayList;
 
+/**
+ * <h1>The Product Category Object</h1>
+ * <p>Various attributes of product categories, and related behaviour.</p>
+ * @author Fanni Skoda
+ * @since 2017.05.08.
+ */
+
 public class ProductCategory extends BaseModel {
     private String department;
     private ArrayList<Product> products;
