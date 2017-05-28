@@ -13,6 +13,11 @@ import spark.Response;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * <h1>This is the controller class of Cart Object</>
+ * <p>The controller is a singleton.</>
+ */
+
 public class CartController {
 
     private static CartController instance = null;

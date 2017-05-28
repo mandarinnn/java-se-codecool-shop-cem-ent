@@ -2,6 +2,12 @@ package com.codecool.shop.model;
 
 import java.util.Currency;
 
+/**
+ * <h1>The Product object</>
+ * <P>Various attributes of Products, and related behaviour.
+ * @author Fanni Skoda
+ * @since 2017.05.08.
+ */
 public class Product extends BaseModel {
 
     private float defaultPrice;
@@ -10,6 +16,15 @@ public class Product extends BaseModel {
     private Supplier supplier;
 
 
+    /**
+     * Constructor
+     * @param name name of the product
+     * @param defaultPrice the default price of the product
+     * @param currencyString the currency of the price
+     * @param description description of the product
+     * @param productCategory category  of the product
+     * @param supplier supplier of the product
+     */
     public Product(String name, float defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier) {
         super(name, description);
         this.setPrice(defaultPrice, currencyString);
@@ -17,6 +32,16 @@ public class Product extends BaseModel {
         this.setProductCategory(productCategory);
     }
 
+    /**
+     *
+     * @param id unique id of the product
+     * @param name name of the product
+     * @param defaultPrice the default price of the product
+     * @param currencyString the currency of the price
+     * @param description description of the product
+     * @param productCategory category  of the product
+     * @param supplier supplier of the product
+     */
     public Product(int id, String name, float defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier) {
         super(id, name, description);
         this.setPrice(defaultPrice, currencyString);

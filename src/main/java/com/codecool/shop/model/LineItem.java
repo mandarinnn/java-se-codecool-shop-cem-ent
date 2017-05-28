@@ -1,6 +1,12 @@
 package com.codecool.shop.model;
 
-
+/**
+ * <h1>The Line Item object</h1>
+ * <P>Various attributes of line items, and related behaviour.
+ * Every line item is from {@link Product} object
+ * @author Fanni Skoda
+ * @since 2017.05.08.
+ */
 
 public class LineItem {
     private final Product product;
@@ -26,6 +32,9 @@ public class LineItem {
         this.quantity = quantity;
     }
 
+    /**
+     *
+     */
     public void incrementQuantity() {
         this.quantity += 1;
     }

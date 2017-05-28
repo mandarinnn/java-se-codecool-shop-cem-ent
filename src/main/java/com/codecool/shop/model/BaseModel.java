@@ -3,20 +3,35 @@ package com.codecool.shop.model;
 
 import java.lang.reflect.Field;
 
+/**
+ * <h1>The base model of objects</>
+ * <P>Various attributes of models, and related behaviour.
+ * @author Fanni Skoda
+ * @since 2017.05.08.
+ */
+
 public class BaseModel {
 
     protected int id;
     protected String name;
     protected String description;
 
-    public BaseModel(String name) {
-        this.name = name;
-    }
-
+    /**
+     * Constructor
+     * @param name name of the model
+     * @param description description of the model
+     */
     public BaseModel(String name, String description) {
         this.name = name;
         this.description = description;
     }
+
+    /**
+     * Constructor
+     * @param id unique id of the model
+     * @param name name of the model
+     * @param description description of the model
+     */
 
     public BaseModel(int id, String name, String description) {
         this.id = id;
